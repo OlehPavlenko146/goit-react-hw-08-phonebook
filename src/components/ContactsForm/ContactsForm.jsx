@@ -1,10 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../../redux/contacts/operations';
-import {
-  selectContacts,
-  selectIsLoading,
-  selectError,
-} from 'redux/contacts/selectors';
+import { selectContacts } from 'redux/contacts/selectors';
 import { Filter } from '../Filter/Filter';
 
 import { Form, Input, Label, AddBtn, Title } from './ContactsForm.styled';
@@ -12,8 +8,6 @@ import { Form, Input, Label, AddBtn, Title } from './ContactsForm.styled';
 export const ContactsForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
 
   const handleSubmit = event => {
     event.preventDefault();
