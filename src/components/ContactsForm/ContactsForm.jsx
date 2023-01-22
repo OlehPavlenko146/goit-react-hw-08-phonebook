@@ -3,7 +3,17 @@ import { addContact } from '../../redux/contacts/operations';
 import { selectContacts } from 'redux/contacts/selectors';
 import { Filter } from '../Filter/Filter';
 
-import { Form, Input, Label, AddBtn, Title } from './ContactsForm.styled';
+import toast from 'react-hot-toast';
+
+import {
+  Form,
+  Input,
+  Label,
+  AddBtn,
+  Title,
+  FormWpap,
+  BtnNameWrap,
+} from './ContactsForm.styled';
 
 export const ContactsForm = () => {
   const dispatch = useDispatch();
@@ -19,16 +29,20 @@ export const ContactsForm = () => {
         contact => contact.name.toLowerCase() === name.toLowerCase()
       )
     ) {
-      return alert(`${name} is already in contacts.`);
+      return toast.error(`${name} is already in contacts.`);
     } else {
-      dispatch(addContact({ name, number }));
+      dispatch(addContact({ name, number }))
+        .unwrap()
+        .then(() => {
+          event.target.reset();
+          toast.success('Contact is added!');
+        })
+        .catch(() => toast.error('Something went wrong...Try reload page'));
     }
-
-    event.target.reset();
   };
 
   return (
-    <>
+    <FormWpap>
       <Title>Phonebook</Title>
       <Form onSubmit={handleSubmit}>
         <Label>
@@ -51,9 +65,11 @@ export const ContactsForm = () => {
             required
           />
         </Label>
-        <AddBtn type="submit">Add contact</AddBtn>
+        <AddBtn type="submit">
+          <BtnNameWrap>Add contact</BtnNameWrap>
+        </AddBtn>
       </Form>
       {contacts.length > 0 && <Filter />}
-    </>
+    </FormWpap>
   );
 };

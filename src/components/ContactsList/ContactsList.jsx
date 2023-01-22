@@ -5,7 +5,11 @@ import {
   selectfilteredContacts,
 } from 'redux/contacts/selectors';
 import { ContactItem } from './ContactItem';
-import { ListOfContacts, ContactsTitle } from './Contacts.List.styled';
+import {
+  ListOfContacts,
+  ContactsTitle,
+  ContactListWrap,
+} from './Contacts.List.styled';
 
 export const ContactsList = ({ title }) => {
   const contacts = useSelector(selectContacts);
@@ -13,7 +17,7 @@ export const ContactsList = ({ title }) => {
   const filteredContacts = useSelector(selectfilteredContacts);
 
   return (
-    <>
+    <ContactListWrap>
       {contacts.length > 0 && (
         <ListOfContacts>
           <ContactsTitle>{title}</ContactsTitle>
@@ -27,7 +31,7 @@ export const ContactsList = ({ title }) => {
           ))}
         </ListOfContacts>
       )}
-    </>
+    </ContactListWrap>
   );
 };
 

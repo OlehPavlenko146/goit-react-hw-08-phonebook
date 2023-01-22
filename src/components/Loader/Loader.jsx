@@ -3,20 +3,21 @@ import { Oval } from 'react-loader-spinner';
 export const Loader = () => {
   return (
     <Oval
-      height={80}
-      width={80}
-      color="#df240b"
+      height={50}
+      width={50}
+      color="#fd2407"
       wrapperStyle={{
+        position: 'absolute',
         justifyContent: 'center',
-        marginTop: '10px',
-        zIndex: '999',
+        marginTop: '300px',
+        zIndex: '9999',
       }}
       wrapperClass=""
       visible={true}
       ariaLabel="oval-loading"
       secondaryColor="#11e771"
-      strokeWidth={4}
-      strokeWidthSecondary={4}
+      strokeWidth={5}
+      strokeWidthSecondary={2}
     />
   );
 };

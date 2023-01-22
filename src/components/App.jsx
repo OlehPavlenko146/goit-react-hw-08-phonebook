@@ -1,8 +1,8 @@
 import { useEffect, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
-
 import { useAuth } from '../hooks/useAuth';
+import { Loader } from './Loader/Loader';
 import { GlobalStyle } from './GlobalStyles';
 import { Container } from './App.styled';
 import { useDispatch } from 'react-redux';
@@ -24,7 +24,7 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <b>Refreshing user...</b>
+    <Loader />
   ) : (
     <Container>
       <Routes>
@@ -57,35 +57,3 @@ export const App = () => {
     </Container>
   );
 };
-
-// import { ContactsForm } from './ContactsForm/ContactsForm';
-// import { ContactsList } from './ContactsList/ContactsList';
-// import { Loader } from './Loader/Loader';
-// import { useEffect } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { fetchContacts } from 'redux/contacts/operations';
-// import { selectError, selectIsLoading } from 'redux/contacts/selectors';
-
-// import { GlobalStyle } from './GlobalStyles';
-// import { Container, Title } from './App.styled';
-
-// export const App = () => {
-//   const dispatch = useDispatch();
-//   const isLoading = useSelector(selectIsLoading);
-//   const error = useSelector(selectError);
-
-//   useEffect(() => {
-//     dispatch(fetchContacts());
-//   }, [dispatch]);
-
-//   return (
-//     <Container>
-//       <Title>Phonebook</Title>
-//       <ContactsForm />
-//       {isLoading && !error && <Loader />}
-//       <ContactsList title="Contacts" />
-
-//       <GlobalStyle />
-//     </Container>
-//   );
-// };

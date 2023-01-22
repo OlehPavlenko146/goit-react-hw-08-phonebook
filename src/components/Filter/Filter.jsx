@@ -1,18 +1,17 @@
 import { selectFilter } from '../../redux/./contacts/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from '../../redux/./contacts/filterSlice';
-import { TitleFilter, InputFilter } from './Filter.styled';
+import { TitleFilter, InputFilter, FilterWrap } from './Filter.styled';
 
 export const Filter = () => {
   const dispatch = useDispatch();
   const filterValue = useSelector(selectFilter);
-  console.log(filterValue);
 
   const handleFilterChange = event => {
     dispatch(setFilter(event.target.value));
   };
   return (
-    <div>
+    <FilterWrap>
       <TitleFilter>Find contacts by name</TitleFilter>
       <InputFilter
         type="text"
@@ -23,6 +22,6 @@ export const Filter = () => {
         required
         onChange={handleFilterChange}
       />
-    </div>
+    </FilterWrap>
   );
 };

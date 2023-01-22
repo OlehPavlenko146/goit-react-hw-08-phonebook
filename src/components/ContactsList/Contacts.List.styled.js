@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 
+export const ContactListWrap = styled.div`
+  width: 420px;
+`;
+
 export const ListOfContacts = styled.ul`
   display: flex;
-  padding: 20px;
-  width: 420px;
+  padding: 10px;
+
   flex-direction: column;
   gap: 10px;
 `;
@@ -21,6 +25,11 @@ export const ContactDetails = styled.p`
 `;
 
 export const DeleteBtn = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 35px;
+  min-width: 35px;
   appearance: none;
   background-color: salmon;
   border: 1px solid rgba(27, 31, 35, 0.15);
@@ -29,7 +38,7 @@ export const DeleteBtn = styled.button`
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
-  display: inline-block;
+
   font-family: -apple-system, system-ui, 'Segoe UI', Helvetica, Arial,
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
   font-size: 14px;
@@ -47,5 +56,17 @@ export const DeleteBtn = styled.button`
 export const ContactsTitle = styled.h2`
   margin: 0 auto;
   font-size: 40px;
-  padding: 10px;
+  padding: 5px;
+`;
+
+// export const LoaderWrapDel = styled.span`
+//   display: inline-block;
+//   width: 25px;
+//   height: 25px;
+// `;
+
+export const BtnNameWrapDel = styled.span`
+  display: inline-block;
+  min-width: 25px;
+  height: 25px;
 `;

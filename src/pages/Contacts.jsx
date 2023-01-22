@@ -21,8 +21,8 @@ export default function Contacts() {
       <Helmet>
         <title>Your contacts</title>
       </Helmet>
-      <ContactsForm />
       {isLoading && !error && <Loader />}
+      <ContactsForm />
       <ContactsList title="Contacts" />
     </>
   );

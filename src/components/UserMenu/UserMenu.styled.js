@@ -1,22 +1,27 @@
 import styled from 'styled-components';
 
-export const RegForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-top: 70px;
-`;
-
-export const RegLabel = styled.label`
-  display: flex;
-  flex-direction: column;
+export const HelloPhrase = styled.p`
+  padding: 8px 16px;
   font-size: 20px;
-  gap: 5px;
+  color: #fff;
+
+  font-weight: 500;
+  padding: 5px;
 `;
 
-export const RegBtn = styled.button`
+export const UserMenuWrap = styled.div`
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 8px 20px;
+`;
+
+export const LogOutBtn = styled.button`
   appearance: none;
-  background-color: #2ea44f;
+  background-color: red;
   border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 6px;
   box-shadow: rgba(27, 31, 35, 0.1) 0 1px 0;

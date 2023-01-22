@@ -4,7 +4,7 @@ export const LogForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-top: 20px;
+  margin-top: 70px;
 `;
 
 export const LogLabel = styled.label`
