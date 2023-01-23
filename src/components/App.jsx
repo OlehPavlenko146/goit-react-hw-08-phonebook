@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/auth/operations';
 import { RestrictedRoute } from './RestrictesRoute';
 import { PrivateRoute } from './PrivateRoute';
+import { Navigate } from 'react-router-dom';
 
 const HomePage = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/Register'));
@@ -51,6 +52,7 @@ export const App = () => {
               <PrivateRoute component={ContactsPage} redirectTo="/login" />
             }
           />
+          <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
       <GlobalStyle />
